@@ -1,0 +1,18 @@
+﻿<Window x:Class="PC_store.find_prod"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_store"
+        mc:Ignorable="d"
+        Title="find_prod" Height="259.333" Width="300" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
+    <Grid Margin="0,0,0,0">
+        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="298" x:Name="header">
+            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="278,0,0,0" />
+            <TextBlock Foreground="LightYellow" Margin="1,1,140,-1" Text="поиск товара"/>
+        </Grid>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="10,25,0,0" TextWrapping="Wrap" Text="Наименование" VerticalAlignment="Top" Width="145"/>
+        <Button Style="{StaticResource ButtonStyle}" Name="find" Content="поиск" Height="23" Margin="160,25,10,209"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="278" Height="192"/>
+    </Grid>
+</Window>

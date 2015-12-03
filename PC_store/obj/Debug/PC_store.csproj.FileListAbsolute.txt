@@ -1,0 +1,64 @@
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\bin\Debug\PC_store.exe.config
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\bin\Debug\PC_store.exe
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\bin\Debug\PC_store.pdb
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.csprojResolveAssemblyReference.cache
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\MainWindow.g.cs
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\App.g.cs
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store_MarkupCompile.cache
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store_MarkupCompile.lref
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\MainWindow.baml
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.g.resources
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.Properties.Resources.resources
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.csproj.GenerateResource.Cache
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.exe
+c:\users\тимур\documents\visual studio 2015\Projects\PC_store\PC_store\obj\Debug\PC_store.pdb
+C:\Users\Тимур\Documents\Visual Studio 2015\Projects\PC_store\PC_store\obj\Debug\Config.g.cs
+C:\Users\Тимур\Documents\Visual Studio 2015\Projects\PC_store\PC_store\obj\Debug\Config.baml
+C:\Users\Тимур\Documents\Visual Studio 2015\Projects\PC_store\PC_store\obj\Debug\App.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\bin\Debug\PC_store.exe.config
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.exe
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.pdb
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store_MarkupCompile.cache
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store_MarkupCompile.lref
+C:\Users\Тимур\Desktop\PC_store\PC_store\bin\Debug\PC_store.exe
+C:\Users\Тимур\Desktop\PC_store\PC_store\bin\Debug\PC_store.pdb
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\App.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\App.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.g.resources
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.Properties.Resources.resources
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.csproj.GenerateResource.Cache
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Basket.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Basket.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Config.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\deleteEmp.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\delete_dis.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Find.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\find_prod.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\intake_to_str.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Login.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\New_Client.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_dis.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\New_Emp.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_order.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_product.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\OP.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\sale_find.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\waiting.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Config.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\deleteEmp.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\delete_dis.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Find.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\find_prod.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\intake_to_str.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\Login.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\New_Client.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_dis.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\New_Emp.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_order.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\new_product.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\OP.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\sale_find.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\windows\waiting.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\MainWindow.g.cs
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\MainWindow.baml
+C:\Users\Тимур\Desktop\PC_store\PC_store\obj\Debug\PC_store.csprojResolveAssemblyReference.cache

@@ -1,0 +1,23 @@
+﻿<Window x:Class="PC_store.New_Emp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_store"
+        mc:Ignorable="d"
+        Title="new_emp" Height="238.5" Width="300" ResizeMode="NoResize" WindowStyle="None" BorderBrush="Black" BorderThickness="1">
+    <Grid Margin="0,0,0,0">
+        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="300" x:Name="header">
+            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="280,0,0,0" />
+            <TextBlock Foreground="LightYellow" Margin="1,1,162,0">Новый сотрудник</TextBlock>
+        </Grid>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="24" Margin="4,24,0,0" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top" Width="288"/>
+        <TextBox x:Name="salary" HorizontalAlignment="Left" Height="24" Margin="4,77,0,0" TextWrapping="Wrap" Text="оклад" VerticalAlignment="Top" Width="288"/>
+        <ComboBox x:Name="pos" HorizontalAlignment="Left" Height="24" Margin="4,115,0,0" VerticalAlignment="Top" Width="288" />
+        <TextBox x:Name="date" HorizontalAlignment="Left" Height="24" Margin="4,51,0,0" TextWrapping="Wrap" Text="дата рождения" VerticalAlignment="Top" Width="288"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="6,100,0,0" TextWrapping="Wrap" Text="должность" VerticalAlignment="Top"/>
+        <TextBox x:Name="log" HorizontalAlignment="Left" Height="24" Margin="4,143,0,0" TextWrapping="Wrap" Text="логин" VerticalAlignment="Top" Width="288"/>
+        <TextBox x:Name="pas" HorizontalAlignment="Left" Height="24" Margin="4,169,0,0" TextWrapping="Wrap" Text="пароль" VerticalAlignment="Top" Width="288"/>
+        <Button x:Name="new_emp_btm" Style="{StaticResource ButtonStyle}" Content="Добавить" HorizontalAlignment="Left" Margin="4,197,0,0" VerticalAlignment="Top" Width="93" Click="new_emp_btm_Click" Height="31"/>
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="PC_store.new_order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PC_store"
+        mc:Ignorable="d"
+        Title="new_order" Height="338.455" Width="395.665" ResizeMode="NoResize" WindowStyle="None">
+    <Grid>
+        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="396" x:Name="header">
+            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="376,0,0,0" />
+            <TextBlock Foreground="LightYellow" Margin="1,1,162,0">оформление заказа</TextBlock>
+        </Grid>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="1,20,0,0" Height="316" Width="241" IsEnabled="False"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="244,98,-1,0" VerticalAlignment="Top" Width="153" SelectionChanged="comboBox_SelectionChanged"/>
+        <Button Name="new_client" Style="{StaticResource ButtonStyle}" Content="Создать уч.запись" Margin="242,20,10,292" Click="new_client_Click"/>
+
+        <TextBox Name="id_client" Text="№ клиента" Margin="243,62,33,256"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="245,84,0,0" TextWrapping="Wrap" Text="Скидка" VerticalAlignment="Top"/>
+        <Button x:Name="create_order" Content="Оформить заказ" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Margin="241,160,0,0" VerticalAlignment="Top" Width="154" Click="create_order_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="245,128,0,0" Text="итого:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="244,145,0,0" Text="" VerticalAlignment="Top" x:Name="price"/>
+        <TextBlock HorizontalAlignment="Left" Margin="361,145,0,0" Text="руб." VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
