@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Data;
 using System.Threading;
+using System.Security.Cryptography;
 
 namespace PC_store
 {
@@ -29,6 +30,11 @@ namespace PC_store
         public event exit Exit;      
         public event StartCon StartConectionProcess;       
         public event CloseCon CloseConectionProcess;
+
+        private bool Allow(int AccessLvL)
+        {
+            return (GetAccess_lvl > AccessLvL) ? true : false; ;
+        }
 
         public int GetID_Storage
         {
@@ -151,7 +157,7 @@ namespace PC_store
         public void AddEmploye(string fullname, double salary, int pos, string Login, string Pass,string date)//добавление сотрудника
         {
 
-            if (GetAccess_lvl > 3)
+            if (Allow(3))
             {
                 MessageBox.Show("Не достаточно прав","Ошибка!");
                 return;
@@ -180,7 +186,7 @@ namespace PC_store
         public bool DelEmp(int id)//удаление сотрудника и БД
         {
             if (current_client != id)
-                if (GetAccess_lvl > 3)
+                if (Allow(3))
                 {
                     MessageBox.Show("Не достаточно прав","Ошибка!");
                     return false;
@@ -200,7 +206,7 @@ namespace PC_store
 
         public void AddStorage(string addres, int id_emp)//добавление Аутпоста
         {
-            if (GetAccess_lvl > 2)
+            if (Allow(2))
             {
                 Console.WriteLine("Не достаточно прав");
                 return;
@@ -242,7 +248,7 @@ namespace PC_store
 
         public bool AddDiscount(string name, int dis)//добавление скидки
         {
-            if (GetAccess_lvl > 3)
+            if (Allow(3))
             {
                 MessageBox.Show("Не достаточно прав","Ошибка!");
                 return false;
@@ -274,7 +280,7 @@ namespace PC_store
 
         public bool DelDiscount(int id)//удаление скидки
         {
-            if (GetAccess_lvl > 3)
+            if (Allow(3))
             {
                 MessageBox.Show("Не достаточно прав", "Ошибка!");
                 return false;
@@ -292,7 +298,7 @@ namespace PC_store
             return true;
         }      
         
-        public bool new_product(string name, string spec, double price)//добавление нового продукта
+/*!*/  public bool new_product(string name, string spec, double price)//добавление нового продукта
         {
             if (GetAccess_lvl >= 6)
             {
@@ -324,7 +330,7 @@ namespace PC_store
             }
         }
 
-        public bool intake(int id_prod, int amount)//поступление на склад
+/*!*/  public bool intake(int id_prod, int amount)//поступление на склад
         {
             reader.Close();
             command.CommandText = "select id_storage from storages_outpost where id_emp = '" + current_client+"'";
@@ -349,7 +355,7 @@ namespace PC_store
 
         }
 
-        public void new_client(string fullname, long phone)//регистрация клиентов
+/*!*/   public void new_client(string fullname, long phone)//регистрация клиентов
         {
             if (GetAccess_lvl >= 6)
             {
@@ -377,7 +383,7 @@ namespace PC_store
             }
         }
 
-        public bool new_client(string fullname, long phone, string adress)//регистрация клиентов
+/*!*/   public bool new_client(string fullname, long phone, string adress)//регистрация клиентов
         {
             if (GetAccess_lvl >= 6)
             {
@@ -588,7 +594,8 @@ namespace PC_store
             bool tmp =true;
 
             reader.Close();
-            command.CommandText = "select amount from products where id_product = " + i + " and id_storage=" + GetID_Storage;
+            command.CommandText = 
+                "select amount from products where id_product = " + i + " and id_storage=" + GetID_Storage;
             reader = command.ExecuteReader();
             reader.Read();
             if (!reader.HasRows) tmp = false;
