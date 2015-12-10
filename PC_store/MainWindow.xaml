@@ -5,19 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_store"
         mc:Ignorable="d"
-        Title="MainWindow" Height="756" Width="955.333" WindowStyle="None" BorderBrush="Black" BorderThickness="1" ResizeMode="NoResize">
-    <Grid Name="Main" >
-        <Menu x:Name="MainMenu" Height="28" VerticalAlignment="Top" Background="#FFF05219" Margin="0,0,0,0" >
+        Title="MainWindow" Height="628.5" Width="807.333" WindowStyle="None" BorderBrush="Black" BorderThickness="1" ResizeMode="NoResize">
+    <Grid Name="Main" HorizontalAlignment="Left" Width="807" Margin="0,0,-2,0" >
+        <Menu x:Name="MainMenu" Height="28" VerticalAlignment="Top" Background="#FFF05219" Margin="0,0,2,0" >
             <TextBlock Text="PC store                              " Foreground="LightYellow" FontSize="19"/>
             <TextBlock x:Name="name_user" Width="100" Text="Ваше Имя" FontSize="14.667" Foreground="LightYellow"/>
             <MenuItem x:Name="SignIn" Height="26" Width="46" Header="вход" FontSize="14.667" Foreground="LightYellow" Click="SignIn_Click" IsEnabled="False"/>
             <MenuItem x:Name="config" Height="26" Width="84" Header="настройки" FontSize="14.667" Foreground="LightYellow">
-                <MenuItem x:Name="conect" Header="Подключение" Click="conect_Click" Background="#FFF05219" />
-                <MenuItem x:Name="stateCon" Header="Состояние подлкючения" Background="#FFF05219"/>
+                <MenuItem x:Name="conect" Header="Подключение" Click="conect_Click" Background="#FFF05219" />               
             </MenuItem>
             <MenuItem Height="26" Width="70" x:Name="Baskcet" Header="корзина" Foreground="LightYellow" FontSize="14.667" Click="MenuItem_Click_1" IsEnabled="False"/>
         </Menu>
-        <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Margin="930,2,3,732" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Click="exit_Click" />
+        <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Margin="782,3,5,731" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Click="exit_Click" />
         <Button Style="{StaticResource SysButtonStyle}" x:Name="deAuth" Margin="840,4,63,730" Width="50" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Выход" Click="deAuth_Click" Visibility="Hidden"/>
         <Menu x:Name="menu" IsEnabled="False" HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="105" Margin="0,28,0,0" Background="Coral" >
             <MenuItem Header="Товары" Foreground="LightYellow" Width="104" >
@@ -37,7 +36,7 @@
             <MenuItem Header="Вывод" Foreground="LightYellow" Background="Coral" Width="106" Name="output" Click="output_Click"/>
 
         </Menu>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="105,28,0,0" VerticalAlignment="Top" Height="726" Width="848"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="105,28,0,0" VerticalAlignment="Top" Height="598" Width="700"/>
 
 
     </Grid>

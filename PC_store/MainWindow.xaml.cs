@@ -30,8 +30,6 @@ namespace PC_store
             
             conection.StartConectionProcess += Conection_StartConectionProcess;
             conection.CloseConectionProcess += Conection_CloseConectionProcess;
-            
-            stateCon.Click += (object sender, RoutedEventArgs e) => { MessageBox.Show("Состояние подключения: " + conection.State, "Подключение"); };
             Main.MouseLeftButtonDown += (object sender, MouseButtonEventArgs e) => { DragMove(); };
         }          
         
