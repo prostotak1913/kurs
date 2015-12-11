@@ -16,7 +16,7 @@
             </MenuItem>
             <MenuItem Height="26" Width="70" x:Name="Baskcet" Header="корзина" Foreground="LightYellow" FontSize="14.667" Click="MenuItem_Click_1" IsEnabled="False"/>
         </Menu>
-        <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Margin="782,3,5,731" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Click="exit_Click" />
+        <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Margin="777,4,10,602" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Click="exit_Click" />
         <Button Style="{StaticResource SysButtonStyle}" x:Name="deAuth" Margin="840,4,63,730" Width="50" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Выход" Click="deAuth_Click" Visibility="Hidden"/>
         <Menu x:Name="menu" IsEnabled="False" HorizontalAlignment="Left" Height="726" VerticalAlignment="Top" Width="105" Margin="0,28,0,0" Background="Coral" >
             <MenuItem Header="Товары" Foreground="LightYellow" Width="104" >

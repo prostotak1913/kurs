@@ -12,9 +12,7 @@ using System.Security.Cryptography;
 namespace PC_store
 {
     public class Conection 
-    {       
-        
-        SqlDataReader reader;
+    {
         string ConectionString;
         int current_client;
 
@@ -41,9 +39,9 @@ namespace PC_store
             {
                 using (var server = new SqlConnection(ConectionString))
                 {
-                    reader.Close();
+                    server.Open();
                     var command = new SqlCommand("select id_storage from storages_outpost where id_emp = '" + current_client + "'",server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     int id_str = Convert.ToInt32(reader["id_storage"]);
                     reader.Close();
@@ -58,11 +56,12 @@ namespace PC_store
             {
                 using (var server = new SqlConnection(ConectionString))
                 {
-                    reader.Close();
-                    var command = new SqlCommand("select fullname from Employes where id_emp = " + current_client,server);
-                    reader = command.ExecuteReader();
-                    reader.Read();
-                    return reader["fullname"].ToString();
+                    server.Open();
+                    var command = new SqlCommand("select fullname from Employes where id_emp = " + current_client, server);
+                    var reader2 = command.ExecuteReader();
+                    reader2.Read();
+                    return reader2["fullname"].ToString();
+
                 }
             }
         }
@@ -70,8 +69,8 @@ namespace PC_store
         public void ConectionToServer(string ser, string db, string id, string pass)//Соединение с сервером
         {
             
-            //ConectionString = "Data source=PEKA\\SQLEXPRESS; Initial catalog=PC_store; Integrated Security=true";
-            ConectionString = "Server=" + ser + "; Database = " + db + "; User Id = " + id + "; Password = " + pass + ";";
+            ConectionString = "Data source=PEKA\\SQLEXPRESS; Initial catalog=PC_store; Integrated Security=true";
+            //ConectionString = "Server=" + ser + "; Database = " + db + "; User Id = " + id + "; Password = " + pass + ";";
             SqlConnection server = new SqlConnection(ConectionString);
             StartConectionProcess();
             Thread ConectingToSer = new Thread(() =>
@@ -108,6 +107,7 @@ namespace PC_store
             {
                 using (var server = new SqlConnection(ConectionString))
                 {
+                    server.Open();
                     return server.State.ToString();
                 }
             }
@@ -120,7 +120,7 @@ namespace PC_store
                 server.Open();
                 bool tmp = true;
                 var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + login + "'", server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 reader.Read();
                 try
                 {
@@ -128,6 +128,8 @@ namespace PC_store
                     {
                         MessageBox.Show("авторизация прошла успешно", "Подключение");
                         current_client = Convert.ToInt16(reader["id_emp"]);
+                        server.Close();
+                        reader.Close();
                         Auth();
                     }
                     else
@@ -146,7 +148,7 @@ namespace PC_store
                     MessageBox.Show(ex.Message, "ошибка");
                     tmp = false;
                 }
-                reader.Close();
+                
                 return tmp;
             }
         }
@@ -164,9 +166,8 @@ namespace PC_store
                 using (var server = new SqlConnection(ConectionString))
                 {
                     server.Open();
-                    reader.Close();
                     var command = new SqlCommand("select id_position from Employes where id_emp = " + current_client,server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     return Convert.ToInt32(reader["id_position"]);
                 }
@@ -185,9 +186,8 @@ namespace PC_store
                 }
                 else
                 {
-                    reader.Close();
                     var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + Login + "'",server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         MessageBox.Show("пользователь с таким логином уже есть", "Ошибка!");
@@ -199,7 +199,7 @@ namespace PC_store
                     reader = command.ExecuteReader();
                     reader.Read();
                 }
-                reader.Close();
+                
             }
         }
         
@@ -216,13 +216,10 @@ namespace PC_store
                     }
                     else
                     {
-
-                        reader.Close();
                         var command = new SqlCommand("delete from Employes where id_emp = " + id,server);
-                        reader = command.ExecuteReader();
+                        var reader = command.ExecuteReader();
                         reader.Read();
                     }
-                reader.Close();
                 return true;
             }
         }
@@ -231,6 +228,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (Allow(2))
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -239,10 +237,9 @@ namespace PC_store
                 else
                 {
                     {
-                        reader.Close();
                         var command = new SqlCommand(
                         "select * from storages_outpost where address = " + "'" + addres + "'", server);
-                        reader = command.ExecuteReader();
+                        var reader = command.ExecuteReader();
                         if (reader.HasRows)
                         {
                             Console.WriteLine("объект потакому адресу уже имеется");
@@ -267,7 +264,6 @@ namespace PC_store
                         reader.Read();
 
                     }
-                    reader.Close();
                 }
             }
         }
@@ -285,9 +281,8 @@ namespace PC_store
                 else
                 {
                     {
-                        reader.Close();
                         var command =new SqlCommand("select * from discount where name = '" + name + "'",server);
-                        reader = command.ExecuteReader();
+                        var reader = command.ExecuteReader();
                         if (reader.HasRows)
                         {
                             Console.WriteLine("данная скидка уже присутствует");
@@ -300,7 +295,6 @@ namespace PC_store
                         reader.Read();
 
                     }
-                    reader.Close();
                     return true;
                 }
             }
@@ -318,14 +312,12 @@ namespace PC_store
                 }
                 else
                 {
-                    reader.Close();
                     var command = new SqlCommand(
                         "delete from discount where id_discount =" + id, server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
 
                 }
-                reader.Close();
                 return true;
             }
         }
@@ -343,10 +335,9 @@ namespace PC_store
                 else
                 {
                     {
-                        reader.Close();
                         var command = new SqlCommand(
                             "select * from discount where name = '" + name + "'",server);
-                        reader = command.ExecuteReader();
+                        var reader = command.ExecuteReader();
                         if (reader.HasRows)
                         {
                             Console.WriteLine("данный товар уже присутствует");
@@ -360,7 +351,6 @@ namespace PC_store
                         reader.Read();
 
                     }
-                    reader.Close();
                     return true;
                 }
             }
@@ -371,9 +361,8 @@ namespace PC_store
             using (var server = new SqlConnection(ConectionString))
             {
                 server.Open();
-                reader.Close();
                 var command = new SqlCommand( "select id_storage from storages_outpost where id_emp = '" + current_client + "'",server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 reader.Read();
                 int id_str = Convert.ToInt32(reader["id_storage"]);
 
@@ -399,6 +388,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -406,10 +396,9 @@ namespace PC_store
                 }
                 else
                 {
-                    reader.Close();
                     var command = new SqlCommand(
                     "select * from customer_base where phone = " + phone, server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         Console.WriteLine("клиент с таким телефоном уже есть");
@@ -431,6 +420,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -438,10 +428,9 @@ namespace PC_store
                 }
                 else
                 {
-                    reader.Close();
                     var command = new SqlCommand(
                     "select * from customer_base where phone = " + phone, server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         Console.WriteLine("клиент с таким телефоном уже есть");
@@ -453,7 +442,6 @@ namespace PC_store
                         "exec new_client " + "'" + fullname + "', '" + adress + "'," + phone, server);
                     reader = command.ExecuteReader();
                     reader.Read();
-                    reader.Close();
                     return true;
                 }
             }
@@ -463,6 +451,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -470,12 +459,9 @@ namespace PC_store
                 }
                 else
                 {
-
-
-                    reader.Close();
                     var command = new SqlCommand(
                         "exec New_Order " + id_product + "," + amount + "," + id_client + "," + id_discount + "," + GetID_Storage + ", " + price,server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     reader.Close();
                     command = new SqlCommand(
@@ -497,6 +483,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -504,11 +491,9 @@ namespace PC_store
                 }
                 else
                 {
-
-                    reader.Close();
                     var command = new SqlCommand(
                         "exec New_Order " + id_product + "," + amount + "," + id_client + ",null ," + GetID_Storage + ", " + price,server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     reader.Close();
                     command = new SqlCommand(
@@ -520,7 +505,6 @@ namespace PC_store
                         "update products set amount = amount-" + amount + " where id_product =" + id_product,server);
                     reader = command.ExecuteReader();
                     reader.Read();
-                    reader.Close();
                     return true;
                 }
             }
@@ -530,6 +514,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -537,19 +522,15 @@ namespace PC_store
                 }
                 else
                 {
-
-
-                    reader.Close();
                     var command = new SqlCommand(
                         "exec New_Order " + id_product + "," + amount + ", null ,null ," + GetID_Storage + ", " + price, server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     reader.Close();
                     command = new SqlCommand(
                         "update products set amount = amount-" + amount + " where id_product =" + id_product, server);
                     reader = command.ExecuteReader();
                     reader.Read();
-                    reader.Close();
                     return true;
                 }
             
@@ -558,8 +539,10 @@ namespace PC_store
 
         public bool new_Order1(int id_product, int amount, int id_dis, double price)//новый заказ со скидкой
         {
+            
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 if (GetAccess_lvl >= 6)
                 {
                     Console.WriteLine("Не достаточно прав");
@@ -567,18 +550,15 @@ namespace PC_store
                 }
                 else
                 {
-
-                    reader.Close();
                     var command = new SqlCommand(
                         "exec New_Order " + id_product + "," + amount + ", null, " + id_dis + ", " + GetID_Storage + ", " + price,server);
-                    reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
                     reader.Read();
                     reader.Close();
                     command = new SqlCommand(
                         "update products set amount = amount-" + amount + " where id_product =" + id_product,server);
                     reader = command.ExecuteReader();
                     reader.Read();
-                    reader.Close();
                     return true;
                 }
             }
@@ -588,14 +568,12 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                SqlCommand command1 = new SqlCommand("select * from product where name = '" + name + "'", server);
+                server.Open();
+                var command = new SqlCommand("select * from product where name = '" + name + "'", server);
                 DataTable dt = new DataTable("product");
-                command1.ExecuteNonQuery();
-                SqlDataAdapter da = new SqlDataAdapter(command1);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
                 da.Fill(dt);
-                reader.Close();
-
-                reader.Close();
                 return dt;
             }
         }
@@ -604,9 +582,10 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 List<string> lp = new List<string>();
                 SqlCommand command1 = new SqlCommand("select name from Position", server);
-                reader = command1.ExecuteReader();
+                var reader = command1.ExecuteReader();
                 while (reader.Read())
                 {
                     lp.Add(reader["name"].ToString());
@@ -620,14 +599,14 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 List<string> lp = new List<string>();
-                SqlCommand command1 = new SqlCommand("select name from product", server);
-                reader = command1.ExecuteReader();
+                var command = new SqlCommand("select name from product", server);
+                var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     lp.Add(reader["name"].ToString());
                 }
-                reader.Close();
                 return lp;
             }
         }
@@ -636,15 +615,14 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                reader.Close();
+                server.Open();
                 List<string> lp = new List<string>();
                 var command = new SqlCommand("select name from discount", server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     lp.Add(reader["name"].ToString());
                 }
-                reader.Close();
                 return lp;
             }
         }
@@ -653,9 +631,9 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                reader.Close();
+                server.Open();
                 var command = new SqlCommand("select price from product where id_product = " + n, server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 reader.Read();
                 return Convert.ToDouble(reader["price"]);
             }
@@ -665,12 +643,11 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 bool tmp = true;
-
-                reader.Close();
                 var command = new SqlCommand(
                     "select amount from products where id_product = " + i + " and id_storage=" + GetID_Storage,server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 reader.Read();
                 if (!reader.HasRows) tmp = false;
                 else
@@ -686,9 +663,9 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                reader.Close();
+                server.Open();
                 var command = new SqlCommand("select discount from discount where id_discount = " + id, server);
-                reader = command.ExecuteReader();
+                var reader = command.ExecuteReader();
                 reader.Read();
                 return Convert.ToInt32(reader["discount"]);
             }
@@ -698,11 +675,13 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 DataTable tmp = new DataTable();
-                SqlCommand command1 = (vallue.Trim() != "*" && vallue.Trim() != "" && vallue != "...") ? new SqlCommand("select * from " + table + " where " + column + " = '" + vallue + "'", server)
-                : new SqlCommand("select * from " + table, server);
-                command1.ExecuteNonQuery();
-                SqlDataAdapter da = new SqlDataAdapter(command1);
+                var command = (vallue.Trim() != "*" && vallue.Trim() != "" && vallue != "...")?
+                    new SqlCommand("select * from " + table + " where " + column + " = '" + vallue + "'", server)
+                    : new SqlCommand("select * from " + table, server);
+                command.ExecuteNonQuery();
+                SqlDataAdapter da = new SqlDataAdapter(command);
                 da.Fill(tmp);
                 return tmp;
             }
@@ -712,10 +691,10 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                reader.Close();
+                server.Open();
                 List<string> lp = new List<string>();
-                SqlCommand command1 = new SqlCommand("use " + server.Database + " select name from sys.objects WHERE type in (N'U') and not(name='sysdiagrams')", server);
-                reader = command1.ExecuteReader();
+                SqlCommand command = new SqlCommand("use " + server.Database + " select name from sys.objects WHERE type in (N'U') and not(name='sysdiagrams')", server);
+                var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     lp.Add(reader["name"].ToString());
@@ -729,15 +708,14 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
-                reader.Close();
+                server.Open();
                 List<string> lp = new List<string>();
-                SqlCommand command1 = new SqlCommand("use " + server.Database + " SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '" + s + "'", server);
-                reader = command1.ExecuteReader();
+                var command = new SqlCommand("use " + server.Database + " SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '" + s + "'", server);
+                var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     lp.Add(reader["COLUMN_NAME"].ToString());
                 }
-                reader.Close();
                 return lp;
             }
         }
@@ -746,6 +724,7 @@ namespace PC_store
         {
             using (var server = new SqlConnection(ConectionString))
             {
+                server.Open();
                 DataTable dt = new DataTable();
                 SqlCommand command1 = new SqlCommand("select * from " + table, server);
                 command1.ExecuteNonQuery();

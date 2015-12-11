@@ -30,6 +30,7 @@ namespace PC_store
             
             conection.StartConectionProcess += Conection_StartConectionProcess;
             conection.CloseConectionProcess += Conection_CloseConectionProcess;
+            conection.DeAuth += Conection_DeAuth;
             Main.MouseLeftButtonDown += (object sender, MouseButtonEventArgs e) => { DragMove(); };
         }          
         
@@ -47,13 +48,14 @@ namespace PC_store
             name_user.Text = conection.Name_current_Emp;
             deAuth.Visibility = Visibility.Visible;
             menu.IsEnabled = true;
-            Baskcet.IsEnabled = false;
-            conection.DeAuth += Conection_DeAuth;
+            Baskcet.IsEnabled = true;
         }
 
         private void Conection_DeAuth()
         {
-            Baskcet.IsEnabled = true;
+            deAuth.Visibility = Visibility.Hidden;
+            menu.IsEnabled = false;
+            Baskcet.IsEnabled = false;
         }
 
         private void conect_Click(object sender, RoutedEventArgs e)//открыть окно настройки

@@ -44,7 +44,6 @@ namespace PC_store
             {
                 MessageBox.Show(ex.Message, "Ошибка!");
             }
-            MessageBox.Show(MainWindow.bsk.basket.Count.ToString());
         }
     }
 }
