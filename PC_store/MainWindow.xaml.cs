@@ -64,8 +64,6 @@ namespace PC_store
             Config conf = new Config();
             conf.Show();
             conf.Closed += AllClosed;
-
-
         }
 
         private void Conection_CloseConectionProcess()

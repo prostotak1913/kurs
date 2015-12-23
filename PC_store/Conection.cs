@@ -7,7 +7,6 @@ using System.Data.SqlClient;
 using System.Windows;
 using System.Data;
 using System.Threading;
-using System.Security.Cryptography;
 
 namespace PC_store
 {
@@ -28,7 +27,7 @@ namespace PC_store
         public event StartCon StartConectionProcess;       
         public event CloseCon CloseConectionProcess;
 
-        private bool Allow(int AccessLvL)
+        private bool Allow(int AccessLvL)//проверка уровня доступа
         {
             return (GetAccess_lvl > AccessLvL) ? true : false; ;
         }
@@ -49,7 +48,6 @@ namespace PC_store
                 }
             }
         }
-
         public string Name_current_Emp
         {
             get
@@ -96,10 +94,6 @@ namespace PC_store
 
         }
 
-        public Conection()
-        {
-        }
-
         public string State
         {
 
@@ -119,12 +113,13 @@ namespace PC_store
             {
                 server.Open();
                 bool tmp = true;
-                var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + login + "'", server);
+                var encryptor = new Cryptography();
+                var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + encryptor.MD5(login) + "'", server);
                 var reader = command.ExecuteReader();
                 reader.Read();
                 try
                 {
-                    if (reader["pass_emp"].ToString() == pass)
+                    if (reader["pass_emp"].ToString() == encryptor.MD5(pass))
                     {
                         MessageBox.Show("авторизация прошла успешно", "Подключение");
                         current_client = Convert.ToInt16(reader["id_emp"]);
@@ -186,7 +181,8 @@ namespace PC_store
                 }
                 else
                 {
-                    var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + Login + "'",server);
+                    var encryptor = new Cryptography();
+                    var command = new SqlCommand("select * from log_pas where login_emp = " + "'" + encryptor.MD5(Login) + "'",server);
                     var reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
@@ -195,7 +191,7 @@ namespace PC_store
                         return;
                     }
                     reader.Close();
-                    command = new SqlCommand("exec ADDEmp" + "'" + fullname + "', " + Math.Round(salary, 2) + ", " + pos + ", '" + Login + "', " + "'" + Pass + "', '" + date + "'",server);
+                    command = new SqlCommand("exec ADDEmp" + "'" + fullname + "', " + Math.Round(salary, 2) + ", " + pos + ", '" + encryptor.MD5(Login) + "', " + "'" + encryptor.MD5(Pass) + "', '" + date + "'",server);
                     reader = command.ExecuteReader();
                     reader.Read();
                 }
@@ -322,7 +318,7 @@ namespace PC_store
             }
         }
         
-/*!*/  public bool new_product(string name, string spec, double price)//добавление нового продукта
+/*!*/   public bool new_product(string name, string spec, double price)//добавление нового продукта
         {
             using (var server = new SqlConnection(ConectionString))
             {
@@ -356,7 +352,7 @@ namespace PC_store
             }
         }
 
-/*!*/  public bool intake(int id_prod, int amount)//поступление на склад
+/*!*/   public bool intake(int id_prod, int amount)//поступление на склад
         {
             using (var server = new SqlConnection(ConectionString))
             {
@@ -383,8 +379,7 @@ namespace PC_store
             }
         }
 
-        /*!*/
-        public void new_client(string fullname, long phone)//регистрация клиентов
+/*!*/   public void new_client(string fullname, long phone)//регистрация клиентов
         {
             using (var server = new SqlConnection(ConectionString))
             {
@@ -415,8 +410,7 @@ namespace PC_store
             }
         }
 
-        /*!*/
-        public bool new_client(string fullname, long phone, string adress)//регистрация клиентов
+/*!*/   public bool new_client(string fullname, long phone, string adress)//регистрация клиентов
         {
             using (var server = new SqlConnection(ConectionString))
             {
