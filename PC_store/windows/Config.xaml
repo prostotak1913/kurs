@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_store"
         mc:Ignorable="d"
-        Title="Настройка" Height="203.621" Width="249" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
+        Title="Настройка" Height="269.213" Width="249" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
 
 
     <Grid Margin="0,0,0,-2" >
@@ -15,19 +15,19 @@
         <TextBox x:Name="DataBase" HorizontalAlignment="Left" Height="23"  Margin="6,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229">
             Введите название базы данных
         </TextBox>
-        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="23"  Margin="6,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229">
+        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="23"  Margin="6,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="229">
             Введите логин
         </TextBox>
-        <TextBlock Margin="6,109,136,79">
+        <TextBlock Margin="6,145,136,107">
             Введите пароль
         </TextBlock>
-        <PasswordBox x:Name="passmord" HorizontalAlignment="Left" Height="23"  Margin="6,125,0,0" VerticalAlignment="Top" Width="229" PasswordChar="*"/>
+        <PasswordBox x:Name="passmord" HorizontalAlignment="Left" Height="23"  Margin="6,162,0,0" VerticalAlignment="Top" Width="229" PasswordChar="*"/>
 
 
 
 
 
-        <Button Style="{StaticResource ButtonStyle}" x:Name="ConectionToServer"  HorizontalAlignment="Left" Margin="6,158,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.5,0.5" Height="36" Click="ConectionToServer_Click">
+        <Button Style="{StaticResource ButtonStyle}" x:Name="ConectionToServer"  HorizontalAlignment="Left" Margin="6,215,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.5,0.5" Height="36" Click="ConectionToServer_Click">
             Подключение
         </Button>
 
@@ -35,6 +35,8 @@
             <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="227,0,0,0" />
             <TextBlock Foreground="LightYellow" Margin="1,1,162,-1">Подключение</TextBlock>
         </Grid>
+        <CheckBox x:Name="IntegrateSecurity" Content="Проверка подлиности Windows" HorizontalAlignment="Left" Margin="6,89,0,0" VerticalAlignment="Top" Width="225"/>
+        <CheckBox x:Name="save" Content="Сохранить подключение" HorizontalAlignment="Left" Margin="6,195,0,0" VerticalAlignment="Top" Width="229"/>
 
     </Grid>
 </Window>

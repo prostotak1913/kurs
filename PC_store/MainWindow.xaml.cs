@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +24,7 @@ namespace PC_store
     {
         public static Conection conection = new Conection();
         public static Basket bsk = new Basket();
+        public static ConectionConfig configuration;
         waiting w = new waiting();
 
         public MainWindow()
@@ -32,6 +35,15 @@ namespace PC_store
             conection.CloseConectionProcess += Conection_CloseConectionProcess;
             conection.DeAuth += Conection_DeAuth;
             Main.MouseLeftButtonDown += (object sender, MouseButtonEventArgs e) => { DragMove(); };
+            var formatter = new BinaryFormatter();
+            var file = new FileStream("server.set", FileMode.Open, FileAccess.Read);
+            configuration = formatter.Deserialize(file) as ConectionConfig;
+            file.Close();
+            if (configuration.SavingConnectionString)
+                if (configuration.IntegratedSecurity)
+                    MainWindow.conection.ConectionToServer(configuration.Server, configuration.DataBase);
+                else
+                    MainWindow.conection.ConectionToServer(configuration.Server, configuration.DataBase, configuration.User, configuration.Password);
         }          
         
         private void SignIn_Click(object sender, RoutedEventArgs e)

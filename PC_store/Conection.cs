@@ -67,8 +67,8 @@ namespace PC_store
         public void ConectionToServer(string ser, string db, string id, string pass)//Соединение с сервером
         {
             
-            ConectionString = "Data source=PEKA\\SQLEXPRESS; Initial catalog=PC_store; Integrated Security=true";
-            //ConectionString = "Server=" + ser + "; Database = " + db + "; User Id = " + id + "; Password = " + pass + ";";
+            //ConectionString = "Data source=PEKA\\SQLEXPRESS; Initial catalog=PC_store; Integrated Security=true";
+            ConectionString = "Server=" + ser + "; Database = " + db + "; User Id = " + id + "; Password = " + pass + ";";
             SqlConnection server = new SqlConnection(ConectionString);
             StartConectionProcess();
             Thread ConectingToSer = new Thread(() =>
@@ -79,6 +79,35 @@ namespace PC_store
               });
             try
             {
+                ConectingToSer.Start();
+
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Ошибка подключения к серверу!", "Ошибка!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка!");
+            }
+            server.Close();
+
+        }
+
+        public void ConectionToServer(string ser, string db)//Соединение с сервером
+        {
+            ConectionString = "Data source="+ser+"; Initial catalog="+db+"; Integrated Security=true";
+            SqlConnection server = new SqlConnection(ConectionString);
+            StartConectionProcess();
+
+            try
+            {
+                Thread ConectingToSer = new Thread(() =>
+                {
+                    server.Open();
+                    CloseConectionProcess();
+
+                });
                 ConectingToSer.Start();
 
             }

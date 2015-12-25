@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PC_store
 {
@@ -25,14 +26,33 @@ namespace PC_store
             InitializeComponent();
             exit.Click += (object sender, RoutedEventArgs e) => { this.Close(); };
             header.MouseLeftButtonDown += (object sender, MouseButtonEventArgs e) => { DragMove(); };
+            if(MainWindow.configuration.SavingConnectionString)
+            {
+                save.IsChecked = MainWindow.configuration.SavingConnectionString;
+                Server.Text = MainWindow.configuration.Server;
+                DataBase.Text = MainWindow.configuration.DataBase;
+                IntegrateSecurity.IsChecked = MainWindow.configuration.IntegratedSecurity;
+                if (!MainWindow.configuration.IntegratedSecurity)
+                {
+                    Login.Text = MainWindow.configuration.User;
+                    passmord.Password = MainWindow.configuration.Password;
+                }
+            }
         }
 
         private void ConectionToServer_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.configuration = ((bool)IntegrateSecurity.IsChecked)? 
+                new ConectionConfig((bool)IntegrateSecurity.IsChecked, Server.Text, DataBase.Text):
+                new ConectionConfig((bool)IntegrateSecurity.IsChecked, Server.Text, DataBase.Text, Login.Text, passmord.Password);
+
             bool flag = true;
             try
             {
-                MainWindow.conection.ConectionToServer(Server.Text, DataBase.Text, Login.Text,passmord.Password);
+                if ((bool)IntegrateSecurity.IsChecked)
+                    MainWindow.conection.ConectionToServer(Server.Text, DataBase.Text);
+                else
+                    MainWindow.conection.ConectionToServer(Server.Text, DataBase.Text, Login.Text, passmord.Password);
             }
             catch(SqlException)
             {
@@ -44,7 +64,22 @@ namespace PC_store
                 MessageBox.Show(ex.Message, "Ошибка!");
                 flag = false;
             }
-            if (flag) this.Close();
+            if (flag)
+            {
+                if ((bool)save.IsChecked)
+                {
+                    var formatter = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
+                    var file = new FileStream("server.set", FileMode.Create, FileAccess.Write);
+                    formatter.Serialize(file, MainWindow.configuration);
+                    file.Close();
+                }
+                else
+                {
+                    var temp = new ConectionConfig(true, "", "");
+                    temp.SavingConnectionString = false;
+                }
+                this.Close();
+            }
         }
     }
 }

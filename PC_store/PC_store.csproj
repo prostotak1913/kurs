@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConectionConfig.cs" />
     <Compile Include="Cryptography.cs" />
     <Compile Include="windows\Basket.xaml.cs">
       <DependentUpon>Basket.xaml</DependentUpon>
