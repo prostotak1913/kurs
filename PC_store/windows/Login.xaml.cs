@@ -32,11 +32,16 @@ namespace PC_store
             bool flag = true;
             try
             {
-               flag = MainWindow.conection.authorization(Login_log.Text, passwordBox.Password);
+                flag = MainWindow.conection.authorization(Login_log.Text, passwordBox.Password);
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Ошибка при вводе пароля или логина","Ошибка логина или пароля!");
+                flag = false;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString(),ex.Message);
                 flag = false;
             }
             if (flag) this.Close();

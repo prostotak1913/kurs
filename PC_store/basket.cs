@@ -18,6 +18,10 @@ namespace PC_store
 
         public int номер { get; }
         public int код { get; }
+        public string Наименование
+        {
+            get { return MainWindow.conection.prodName(код); }
+        }
         public int количество { get; }
         public double цена
         {

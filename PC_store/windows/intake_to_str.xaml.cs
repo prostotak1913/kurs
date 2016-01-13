@@ -37,7 +37,7 @@ namespace PC_store
             catch (Exception ex)
             {
                 flag = false;
-                MessageBox.Show(ex.Message, "Ошибка!");
+                MessageBox.Show(ex.ToString(), "Ошибка!");
             }
             if (flag) MessageBox.Show("Добавлено", "Ошибка!");
         }

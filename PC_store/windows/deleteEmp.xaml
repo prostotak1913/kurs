@@ -5,13 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_store"
         mc:Ignorable="d"
-        Title="deleteEmp" Height="53" Width="249" WindowStyle="None" BorderBrush="Black" BorderThickness="1" ResizeMode="NoResize">
+        Title="deleteEmp" Height="386.5" Width="517" WindowStyle="None" BorderBrush="Black" BorderThickness="1" ResizeMode="NoResize">
     <Grid Margin="0,0,0,-1">
-        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="247" x:Name="header">
-            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="227,0,0,0" />
-            <TextBlock Foreground="LightYellow" Margin="1,1,94,-1">Удалить сотрудника из БД</TextBlock>
+        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="515" x:Name="header">
+            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="495,-1,0,1" />
+            <TextBlock Foreground="LightYellow" Margin="10,1,20,-1">Удалить сотрудника из БД</TextBlock>
         </Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="5,23,0,0" TextWrapping="Wrap" Text="№ Сотрудника" VerticalAlignment="Top" Width="120"/>
-        <Button Style="{StaticResource ButtonStyle}" x:Name="button" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="130,22,0,0" Height="25" Click="button_Click"/>
+        <Button Style="{StaticResource ButtonStyle}" x:Name="button" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="145,336,0,0" Height="25" Click="button_Click"/>
+        <TextBox IsReadOnly="True" x:Name="name" HorizontalAlignment="Left" Height="24" Margin="209,70,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288"/>
+        <TextBox IsReadOnly="True" x:Name="date" HorizontalAlignment="Left" Height="24" Margin="209,128,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="142"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="145,238,0,0" TextWrapping="Wrap" Text="должность" VerticalAlignment="Top"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Height="124" Margin="11,76,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="145,107,0,0" TextWrapping="Wrap" Text="пол" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.414,0.439"/>
+        <TextBox IsReadOnly="True" x:Name="addres" HorizontalAlignment="Left" Height="23" Margin="209,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="288"/>
+        <TextBox IsReadOnly="True" x:Name="phone" HorizontalAlignment="Left" Height="23" Margin="209,192,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="288"/>
+        <TextBox IsReadOnly="True" x:Name="salary" HorizontalAlignment="Left" Height="24" Margin="209,266,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox  x:Name="Pos" HorizontalAlignment="Left" Height="23" Margin="209,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsReadOnly="True"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="145,266,0,0" TextWrapping="Wrap" Text="зарплата" VerticalAlignment="Top"/>
+        <TextBox IsReadOnly="True" x:Name="gen" HorizontalAlignment="Left" Height="23" Margin="209,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="61"/>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="145,193,0,0" TextWrapping="Wrap" Text="телефон" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="145,165,0,0" TextWrapping="Wrap" Text="адрес" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy5" HorizontalAlignment="Left" Margin="145,71,0,0" TextWrapping="Wrap" Text="ФИО" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.414,0.439"/>
+        <TextBlock x:Name="textBlock_Copy6" HorizontalAlignment="Left" Margin="145,128,0,0" TextWrapping="Wrap" Text="дата рождения" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.414,0.439"/>
+        <TextBox IsReadOnly="True" x:Name="exp" HorizontalAlignment="Left" Height="24" Margin="209,298,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock_Copy7" HorizontalAlignment="Left" Margin="145,298,0,0" TextWrapping="Wrap" Text="опыт" VerticalAlignment="Top"/>
+        <ComboBox x:Name="emp" HorizontalAlignment="Left" Margin="84,31,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="emp_SelectionChanged"/>
+        <TextBlock x:Name="textBlock_Copy8" HorizontalAlignment="Left" Margin="12,31,0,0" TextWrapping="Wrap" Text="сотрудник" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.414,0.439"/>
     </Grid>
 </Window>

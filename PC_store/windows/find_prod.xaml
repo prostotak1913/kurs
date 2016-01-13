@@ -13,6 +13,6 @@
         </Grid>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="23" Margin="10,25,0,0" TextWrapping="Wrap" Text="Наименование" VerticalAlignment="Top" Width="145"/>
         <Button Style="{StaticResource ButtonStyle}" Name="find" Content="поиск" Height="23" Margin="160,25,10,209"/>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="278" Height="192"/>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top" Width="278" Height="192" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
     </Grid>
 </Window>

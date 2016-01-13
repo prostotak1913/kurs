@@ -5,14 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_store"
         mc:Ignorable="d"
-        Title="delete_dis" Height="53" Width="249" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
+        Title="delete_dis" Height="231" Width="249" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
     <Grid>
         <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="247" x:Name="header">
             <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="227,0,0,0" />
             <TextBlock Foreground="LightYellow" Margin="1,1,147,0">Удаление скидки</TextBlock>
         </Grid>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="5,23,0,0" TextWrapping="Wrap" Text="№ скидки" VerticalAlignment="Top" Width="120"/>
         <Button Style="{StaticResource ButtonStyle}" x:Name="button" Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="130,22,0,0" Height="25" Click="button_Click"/>
+        <ComboBox x:Name="discount" HorizontalAlignment="Left" Margin="5,25,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="247" Height="177" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
 
     </Grid>
 </Window>

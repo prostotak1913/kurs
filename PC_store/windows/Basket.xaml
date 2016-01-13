@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PC_store"
         mc:Ignorable="d"
-        Title="Basket" Height="300" Width="249" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
+        Title="Basket" Height="387" Width="414" WindowStyle="None" ResizeMode="NoResize" BorderBrush="Black" BorderThickness="1">
     <Grid>
-        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="247" x:Name="header">
-            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="227,0,0,0" />
+        <Grid Background="#FFF05219" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Margin="0,0,0,0" Width="412" x:Name="header">
+            <Button Style="{StaticResource SysButtonStyle}" x:Name="exit" Width="20" Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Content="X" Margin="392,0,0,0" />
             <TextBlock Foreground="LightYellow" Margin="1,1,147,0">Корзина</TextBlock>
         </Grid>
-        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,46,-1,0" Height="185" Width="248" />
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,46,0,0" Height="263" Width="412" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
         <TextBox x:Name="id_prod" HorizontalAlignment="Left" Height="24" Margin="0,20,0,0" TextWrapping="Wrap" Text="№ позиции" VerticalAlignment="Top" Width="72"/>
         <Button x:Name="del" Content="удалить" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Margin="76,20,0,0" VerticalAlignment="Top" Width="80" Height="22" Click="del_Click"/>
-        <Button x:Name="new_emp" Content="оформить" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Margin="0,259,0,0" VerticalAlignment="Top" Width="247" Height="39" Click="new_emp_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="2,232,0,0" TextWrapping="Wrap" Text="Стоймость:" VerticalAlignment="Top" Width="65"/>
-        <TextBlock x:Name="all_price" HorizontalAlignment="Left" Margin="66,233,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
-        <TextBlock HorizontalAlignment="Left" Margin="211,233,0,0" TextWrapping="Wrap" Text="руб." VerticalAlignment="Top" Width="27" Height="16"/>
+        <Button x:Name="new_emp" Content="оформить" Style="{StaticResource ButtonStyle}" HorizontalAlignment="Left" Margin="2,336,0,0" VerticalAlignment="Top" Width="247" Height="39" Click="new_emp_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,314,0,0" TextWrapping="Wrap" Text="Стоймость:" VerticalAlignment="Top" Width="65"/>
+        <TextBlock x:Name="all_price" HorizontalAlignment="Left" Margin="75,315,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142"/>
+        <TextBlock HorizontalAlignment="Left" Margin="220,315,0,0" TextWrapping="Wrap" Text="руб." VerticalAlignment="Top" Width="27" Height="16"/>
 
 
 

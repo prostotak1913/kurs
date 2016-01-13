@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="36edf25e49c4480ea99f2b747bc8efb0" Name="Diagram1">
+        <EntityTypeShape EntityType="PC_storeModel.Акции" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.БазаКлиентов" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Должности" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Заказы" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Объекты" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Операции" Width="1.5" PointX="8.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Продукт" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Продукты" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Сотрудники" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PC_storeModel.Пароли" Width="1.5" PointX="8.25" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="PC_storeModel.Заказ_Акция" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Кликнт_Акция" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Заказ_Клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Сотрудник_Должность" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Заказ_Продукт" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Заказ_Склад" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Заказ_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Операции_Заказ" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Продукты_Склады" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Сотрудник_Объект" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Операции_Склад" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Операции_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.Продукты_Продукт" ManuallyRouted="false" />
+        <AssociationConnector Association="PC_storeModel.FK_log_pas_Employes1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

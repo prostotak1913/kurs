@@ -25,7 +25,7 @@ namespace PC_store
             InitializeComponent();
             exit.Click += (object sender, RoutedEventArgs e) => { this.Close(); };
             header.MouseLeftButtonDown += (object sender, MouseButtonEventArgs e) => { DragMove(); };
-            find.Click += (object sender, RoutedEventArgs e) => { dataGrid.ItemsSource = MainWindow.conection.find_prod(name.Text).DefaultView; };
+            find.Click += (object sender, RoutedEventArgs e) => { dataGrid.ItemsSource = MainWindow.conection.find_prod(name.Text); };
         }
     }
 }

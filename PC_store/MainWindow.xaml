@@ -8,8 +8,8 @@
         Title="MainWindow" Height="628.5" Width="807.333" WindowStyle="None" BorderBrush="Black" BorderThickness="1" ResizeMode="NoResize">
     <Grid Name="Main" HorizontalAlignment="Left" Width="807" Margin="0,0,-2,0" >
         <Menu x:Name="MainMenu" Height="28" VerticalAlignment="Top" Background="#FFF05219" Margin="0,0,2,0" >
-            <TextBlock Text="PC store                              " Foreground="LightYellow" FontSize="19"/>
-            <TextBlock x:Name="name_user" Width="100" Text="Ваше Имя" FontSize="14.667" Foreground="LightYellow"/>
+            <TextBlock Text="PC store                              " Foreground="LightYellow" FontSize="19" Width="81"/>
+            <TextBlock x:Name="name_user" Width="392" Text="Ваше Имя" FontSize="14.667" Foreground="LightYellow"/>
             <MenuItem x:Name="SignIn" Height="26" Width="46" Header="вход" FontSize="14.667" Foreground="LightYellow" Click="SignIn_Click" IsEnabled="False"/>
             <MenuItem x:Name="config" Height="26" Width="84" Header="настройки" FontSize="14.667" Foreground="LightYellow">
                 <MenuItem x:Name="conect" Header="Подключение" Click="conect_Click" Background="#FFF05219" />               

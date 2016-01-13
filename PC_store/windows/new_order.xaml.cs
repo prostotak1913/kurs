@@ -38,19 +38,17 @@ namespace PC_store
         private void create_order_Click(object sender, RoutedEventArgs e)
         {
             bool flag = true;
-            if (id_client.Text == "№ клиента") id_client.Text ="";
+            int dis = 0;
+            if (id_client.Text == "№ клиента" || id_client.Text == "") id_client.Text = "1";
+            if (comboBox.SelectedIndex == -1) dis = 0; 
             try
             {
                 for (int i = 0; i < MainWindow.bsk.basket.Count; i++)
                 {
                     try
-                    {
-                        if (comboBox.SelectedIndex == -1)
-                            if (id_client.Text == "") flag = MainWindow.conection.new_Order(MainWindow.bsk.basket[i].код, MainWindow.bsk.basket[i].количество, dv);
-                            else flag = MainWindow.conection.new_Order2(MainWindow.bsk.basket[i].код, MainWindow.bsk.basket[i].количество, Convert.ToInt32(id_client.Text), dv);
-                        else
-                            if (id_client.Text == "") flag = MainWindow.conection.new_Order1(MainWindow.bsk.basket[i].код, MainWindow.bsk.basket[i].количество, comboBox.SelectedIndex + 1, dv);
-                        else flag = MainWindow.conection.new_Order3(MainWindow.bsk.basket[i].код, MainWindow.bsk.basket[i].количество, Convert.ToInt32(id_client.Text), comboBox.SelectedIndex + 1, dv);
+                    { 
+                        flag = MainWindow.conection.new_Order(MainWindow.bsk.basket[i].код, MainWindow.bsk.basket[i].количество, Convert.ToInt32(id_client.Text),dis, MainWindow.bsk.basket[i].цена);
+
                     }
                     catch(Exception ex)
                     {
